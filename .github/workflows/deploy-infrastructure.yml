@@ -15,5 +15,5 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: infraastrcture-basics-mis-rg
           template: ./infrastructure/main.bicep
-          parameters: environment=dev resourcePostfix=mis
+          parameters: environment=dev resourcePostfix=mis location=westeurope
           failOnStdErr: false
