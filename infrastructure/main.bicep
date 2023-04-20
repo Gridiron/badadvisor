@@ -1,6 +1,6 @@
-param environment string 
+param environment string
 param resourcePostfix string
-param location string = resourceGroup().location
+param location string = 'eastus'
 
 module storageAccount 'resources/storageAccount.bicep' = {
   name: 'storageAccount-deployment'
