@@ -13,7 +13,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ...
+          resourceGroupName: infraastrcture-basics-mis-rg
           template: ./infrastructure/main.bicep
           parameters: environment=dev resourcePostfix=mis
           failOnStdErr: false
