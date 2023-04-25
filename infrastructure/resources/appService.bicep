@@ -1,13 +1,14 @@
 param environment string
 param resourcePostfix string
 param location string
+param planConfig object
 
 resource plan 'Microsoft.Web/serverfarms@2021-02-01' = {
   name: 'plan-badadvisor-${environment}-${resourcePostfix}'
   location: location
   sku: {
-    tier: 'Standard'
-    name: 'S1'
+    tier: planConfig.skuTier
+    name: planConfig.skuName
   }
   kind: 'linux'
   properties: {

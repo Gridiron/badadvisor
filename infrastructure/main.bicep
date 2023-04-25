@@ -5,6 +5,7 @@
 param environment string
 param resourcePostfix string
 param location string = 'eastus'
+param planConfig object
 
 module storageAccount 'resources/storageAccount.bicep' = {
   name: 'storageAccount-deployment'
@@ -18,8 +19,9 @@ module storageAccount 'resources/storageAccount.bicep' = {
 module appService 'resources/appService.bicep' = {
   name: 'appService-deployment'
   params: {
-    environment: environment
+    environment: planConfig.environment
     resourcePostfix: resourcePostfix
-    location: location
+    location: planConfig.location
+    planConfig: planConfig
   }
 }
