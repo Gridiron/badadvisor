@@ -4,20 +4,12 @@
   "parameters": {
     "config": {
       "value": {
-        "environment": {
-          "value": "dev"
-        },
-        "location": {
-          "value": "eastus"
-        },
-        "resourcePostfix": {
-          "value": "mis"
-        }, 
+        "environment": "dev",
+        "location": "eastus",
+        "resourcePostfix": "mis", 
         "planConfig": {
-          "value" : {
-            "skuTiers" : "Standart",
-            "skuName" : "S1"
-          }
+          "skuTiers" : "Standart",
+          "skuName" : "S1"
         }
       }
     }
