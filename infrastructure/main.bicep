@@ -1,5 +1,14 @@
 param config object
 
+module vnet 'resources/vnet.bicep' = {
+  name: 'vnet-deployment'
+  params: {
+    environment: config.environment
+    resourcePostfix: config.resourcePostfix
+    location: config.location
+  }
+}
+
 module storageAccount 'resources/storageAccount.bicep' = {
   name: 'storageAccount-deployment'
   params: {
@@ -16,14 +25,7 @@ module appService 'resources/appService.bicep' = {
     resourcePostfix: config.resourcePostfix
     location: config.location
     planConfig: config.planConfig
-  }
-}
-
-module vnetService 'resources/vnet.bicep' = {
-  name: 'vnet-deployment'
-  params: {
-    environment: config.environment
-    resourcePostfix: config.resourcePostfix
-    location: config.location
+    vnetName: vnet.outputs.vnetName
+    subnetId: vnet.outputs.subnetId
   }
 }
