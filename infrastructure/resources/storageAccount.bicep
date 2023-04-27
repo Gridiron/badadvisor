@@ -1,13 +1,9 @@
-@allowed([
-  'dev'
-  'prod'
-])
 param environment string
 param resourcePostfix string
-param location string = resourceGroup().location
+param location string
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
-  name: 'sabadadvisor${environment}${resourcePostfix}'
+  name: 'mytr${environment}${resourcePostfix}${location}'
   location: location
   sku: {
     name: 'Standard_LRS'
