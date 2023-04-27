@@ -18,3 +18,12 @@ module appService 'resources/appService.bicep' = {
     planConfig: config.planConfig
   }
 }
+
+module vnetService 'resources/vnet.bicep' = {
+  name: 'vnet-deployment'
+  params: {
+    environment: config.environment
+    resourcePostfix: config.resourcePostfix
+    location: config.location
+  }
+}
