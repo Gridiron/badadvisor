@@ -8,7 +8,7 @@
         "location": "eastus",
         "resourcePostfix": "mis", 
         "planConfig": {
-          "skuTiers" : "Standart",
+          "skuTier" : "Standart",
           "skuName" : "S1"
         }
       }
