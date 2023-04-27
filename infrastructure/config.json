@@ -2,20 +2,24 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "environment": {
+    "config": {
+      "value": {
+        "environment": {
           "value": "dev"
-      },
-      "planConfig": {
-        "value": {
-          "skuTiers" : "Standart",
-          "skuName" : "S1"
+        },
+        "location": {
+          "value": "eastus"
+        },
+        "resourcePostfix": {
+          "value": "mis"
+        }, 
+        "planConfig": {
+          "value" : {
+            "skuTiers" : "Standart",
+            "skuName" : "S1"
+          }
         }
-      },
-      "location": {
-        "value": "eastus"
-      },
-      "resourcePostfix": {
-        "value": "mis"
       }
+    }
   }
 }

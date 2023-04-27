@@ -1,20 +1,20 @@
-param planConfig object
+param config object
 
 module storageAccount 'resources/storageAccount.bicep' = {
   name: 'storageAccount-deployment'
   params: {
-    environment: planConfig.environment
-    resourcePostfix: planConfig.resourcePostfix
-    location: planConfig.location
+    environment: config.environment
+    resourcePostfix: config.resourcePostfix
+    location: config.location
   }
 }
 
 module appService 'resources/appService.bicep' = {
   name: 'appService-deployment'
   params: {
-    environment: planConfig.environment
-    resourcePostfix: planConfig.resourcePostfix
-    location: planConfig.location
-    planConfig: planConfig
+    environment: config.environment
+    resourcePostfix: config.resourcePostfix
+    location: config.location
+    planConfig: config.planConfig
   }
 }
