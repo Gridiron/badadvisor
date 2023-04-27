@@ -1,4 +1,3 @@
-using System;
 using Azure.Data.Tables;
 using BadAdvisor.Mvc.Data;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace BadAdvisor.Mvc
 {
@@ -26,10 +26,10 @@ namespace BadAdvisor.Mvc
             services.AddSingleton(_ =>
             {
                 var tableClient = new TableClient(
-                    new Uri("http://127.0.0.1:10002/devstoreaccount1"),
-                    "badadvisor",
-                    new TableSharedKeyCredential("devstoreaccount1",
-                        "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="));
+                    new Uri("https://mytrdevmiseastus.table.core.windows.net/"),
+                    "commitmessage",
+                    new TableSharedKeyCredential("mytrdevmiseastus",
+                        "n0fBxmUDpt4keLNQktvn2Xzk+2bXjtpE6aHbZ1/XBVKQgb76WMFrA6Uc31gZ4Dox22bRtDH9kazI+AStKmSf8w=="));
 
                 return tableClient;
             });
