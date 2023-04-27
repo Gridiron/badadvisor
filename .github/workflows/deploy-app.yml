@@ -6,8 +6,7 @@ env:
   DOTNET_VERSION: '6.0.400'
   PROJECT_PATH: 'src\\BadAdvisor\\BadAdvisor.Mvc\\BadAdvisor.Mvc.csproj'
 
-on:
-  workflow_dispatch:
+on: [workflow_dispatch]
 
 jobs:
   build:
