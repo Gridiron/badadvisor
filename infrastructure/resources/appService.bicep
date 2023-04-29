@@ -26,6 +26,16 @@ resource appService 'Microsoft.Web/sites@2021-02-01' = {
     serverFarmId: plan.id
     enabled: true
     siteConfig: {
+      appSettings: [
+        {
+          name: 'StorageAccountUrl'
+          value: 'https://mytrdevmiseastus.table.core.windows.net/'
+        }
+        {
+          name: 'StorageAccountAccessKey'
+          value: 'n0fBxmUDpt4keLNQktvn2Xzk+2bXjtpE6aHbZ1/XBVKQgb76WMFrA6Uc31gZ4Dox22bRtDH9kazI+AStKmSf8w=='
+        }
+      ]
       linuxFxVersion: 'DOTNETCORE|6.0'
       alwaysOn: true
       vnetName: vnetName
