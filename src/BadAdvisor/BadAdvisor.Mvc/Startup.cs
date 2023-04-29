@@ -22,15 +22,16 @@ namespace BadAdvisor.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMessagesRepository, MessagesRepository>();
-            Console.WriteLine(Configuration.GetValue<string>("StorageAccountUrl"));
-            Console.WriteLine(Configuration.GetValue<string>("StorageAccountAccessKey"));
+            var storageAccountUrl = Configuration.GetValue<string>("StorageAccountUrl");
+            var storageAccountAccessKey = Configuration.GetValue<string>("StorageAccountAccessKey");
+            //var storageAccountUrl = Environment.GetEnvironmentVariable("StorageAccountUrl");
+            //var storageAccountAccessKey = Environment.GetEnvironmentVariable("StorageAccountAccessKey");
             services.AddSingleton(_ =>
             {
                 var tableClient = new TableClient(
-                    new Uri(Environment.GetEnvironmentVariable("StorageAccountUrl")),
+                    new Uri(storageAccountUrl),
                     "commitmessage",
-                    new TableSharedKeyCredential("mytrdevmiseastus",
-                        Environment.GetEnvironmentVariable("StorageAccountAccessKey")));
+                    new TableSharedKeyCredential("mytrdevmiseastus", storageAccountAccessKey));
 
                 return tableClient;
             });
