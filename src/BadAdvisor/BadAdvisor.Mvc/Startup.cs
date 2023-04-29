@@ -22,7 +22,8 @@ namespace BadAdvisor.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMessagesRepository, MessagesRepository>();
-
+            Console.WriteLine(Configuration.GetValue<string>("StorageAccountUrl"));
+            Console.WriteLine(Configuration.GetValue<string>("StorageAccountAccessKey"));
             services.AddSingleton(_ =>
             {
                 var tableClient = new TableClient(
