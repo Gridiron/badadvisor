@@ -26,10 +26,10 @@ namespace BadAdvisor.Mvc
             services.AddSingleton(_ =>
             {
                 var tableClient = new TableClient(
-                    new Uri(Configuration.GetValue<string>("StorageAccountUrl")),
+                    new Uri(Environment.GetEnvironmentVariable("StorageAccountUrl")),
                     "commitmessage",
                     new TableSharedKeyCredential("mytrdevmiseastus",
-                        Configuration.GetValue<string>("StorageAccountAccessKey")));
+                        Environment.GetEnvironmentVariable("StorageAccountAccessKey")));
 
                 return tableClient;
             });
